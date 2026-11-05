@@ -18,11 +18,11 @@ def test_preco_zero_rejeitado():
     with pytest.raises(ValueError):
         Carrinho().adicionar(0)
 
-def test_cupom_dez():
+def test_cupom_dez_abaixo_do_minimo():
     c = Carrinho()
     c.adicionar(5000)
     c.aplicar_cupom("DEZ")
-    assert c.total == 4500
+    assert c.total == 5000
 
 def test_cupom_desconhecido():
     with pytest.raises(ValueError):
@@ -31,5 +31,11 @@ def test_cupom_desconhecido():
 def test_item_depois_do_cupom():
     c = Carrinho()
     c.aplicar_cupom("DEZ")
-    c.adicionar(1000)
-    assert c.total == 900
+    c.adicionar(10000)
+    assert c.total == 9000
+
+def test_cupom_dez_no_minimo():
+    c = Carrinho()
+    c.adicionar(10000)
+    c.aplicar_cupom("DEZ")
+    assert c.total == 9000
