@@ -16,6 +16,9 @@ class Fila:
         self.senhas.append(senha)
         return senha
 
+    def chamar(self):
+        raise IndexError
+
     @property
     def aguardando(self):
         return len(self.senhas)
