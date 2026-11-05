@@ -1,4 +1,4 @@
-CUPONS = {"DEZ": 10}
+CUPONS = {"DEZ": 10, "VINTE": 20}
 
 
 class Carrinho:
