@@ -1,4 +1,5 @@
 def contar_palavras(texto):
-    if texto == "":
-        return {}
-    return {"teste": 1}
+    resultado = {}
+    for p in texto.split():
+        resultado[p] = 1
+    return resultado
