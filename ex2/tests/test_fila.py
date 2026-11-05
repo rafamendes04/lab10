@@ -59,3 +59,19 @@ def test_prioritaria_passa_na_frente():
     f.emitir("normal")
     f.emitir("prioritaria")
     assert f.chamar() == "P1"
+
+def test_prioritarias_em_ordem_de_chegada():
+    f = Fila()
+    f.emitir("prioritaria")
+    f.emitir("prioritaria")
+    assert f.chamar() == "P1"
+    assert f.chamar() == "P2"
+
+def test_depois_de_duas_prioritarias_vem_normal():
+    f = Fila()
+    f.emitir("normal")
+    for _ in range(3):
+        f.emitir("prioritaria")
+    assert f.chamar() == "P1"
+    assert f.chamar() == "P2"
+    assert f.chamar() == "N1"
