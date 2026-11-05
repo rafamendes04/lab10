@@ -75,3 +75,16 @@ def test_segundo_cupom_abaixo_do_minimo():
 def test_quantidade_zero_rejeitada():
     with pytest.raises(ValueError):
         Carrinho().adicionar(2500, 0)
+
+def test_quantidade_um():
+    c = Carrinho()
+    c.adicionar(2500, 1)
+    assert c.total == 2500
+
+def test_quantidade_negativa_rejeitada():
+    with pytest.raises(ValueError):
+        Carrinho().adicionar(2500, -1)
+
+def test_quantidade_fracionada_rejeitada():
+    with pytest.raises(ValueError):
+        Carrinho().adicionar(2500, 1.5)
