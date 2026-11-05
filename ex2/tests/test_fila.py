@@ -24,3 +24,9 @@ def test_numeracao_por_tipo():
 def test_tipo_invalido():
     with pytest.raises(ValueError):
         Fila().emitir("vip")
+
+def test_aguardando():
+    f = Fila()
+    f.emitir("normal")
+    f.emitir("prioritaria")
+    assert f.aguardando == 2
