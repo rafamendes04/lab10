@@ -4,6 +4,8 @@ class Fila:
         self.p = 0
 
     def emitir(self, tipo):
+        if tipo not in ("normal", "prioritaria"):
+            raise ValueError
         if tipo == "prioritaria":
             self.p += 1
             return "P" + str(self.p)
