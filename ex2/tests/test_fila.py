@@ -34,3 +34,8 @@ def test_aguardando():
 def test_chamar_fila_vazia():
     with pytest.raises(IndexError):
         Fila().chamar()
+
+def test_chamar_devolve_senha():
+    f = Fila()
+    f.emitir("normal")
+    assert f.chamar() == "N1"
