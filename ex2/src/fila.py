@@ -4,6 +4,7 @@ class Fila:
         self.p = 0
         self.normais = []
         self.prios = []
+        self.seguidas = 0
 
     def emitir(self, tipo):
         if tipo not in ("normal", "prioritaria"):
@@ -19,7 +20,8 @@ class Fila:
         return senha
 
     def chamar(self):
-        if self.prios:
+        if self.prios and self.seguidas < 2:
+            self.seguidas += 1
             return self.prios.pop(0)
         return self.normais.pop(0)
 
