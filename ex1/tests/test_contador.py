@@ -23,3 +23,6 @@ def test_palavra_repetida():
 
 def test_maiusculas():
     assert contar_palavras("Dia dia DIA") == {"dia": 3}
+
+def test_ponto_e_exclamacao():
+    assert contar_palavras("fim. Fim!") == {"fim": 2}
