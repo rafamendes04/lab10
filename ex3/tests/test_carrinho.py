@@ -57,3 +57,21 @@ def test_cupom_vinte_abaixo_do_minimo():
     c.adicionar(29999)
     c.aplicar_cupom("VINTE")
     assert c.total == 29999
+
+def test_segundo_cupom_substitui_o_primeiro():
+    c = Carrinho()
+    c.adicionar(30000)
+    c.aplicar_cupom("DEZ")
+    c.aplicar_cupom("VINTE")
+    assert c.total == 24000
+
+def test_segundo_cupom_abaixo_do_minimo():
+    c = Carrinho()
+    c.adicionar(20000)
+    c.aplicar_cupom("DEZ")
+    c.aplicar_cupom("VINTE")
+    assert c.total == 20000
+
+def test_quantidade_zero_rejeitada():
+    with pytest.raises(ValueError):
+        Carrinho().adicionar(2500, 0)
