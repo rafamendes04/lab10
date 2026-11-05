@@ -39,3 +39,15 @@ def test_cupom_dez_no_minimo():
     c.adicionar(10000)
     c.aplicar_cupom("DEZ")
     assert c.total == 9000
+
+def test_cupom_dez_um_abaixo_do_minimo():
+    c = Carrinho()
+    c.adicionar(9999)
+    c.aplicar_cupom("DEZ")
+    assert c.total == 9999
+
+def test_cupom_vinte_no_minimo():
+    c = Carrinho()
+    c.adicionar(30000)
+    c.aplicar_cupom("VINTE")
+    assert c.total == 24000
