@@ -75,3 +75,12 @@ def test_depois_de_duas_prioritarias_vem_normal():
     assert f.chamar() == "P1"
     assert f.chamar() == "P2"
     assert f.chamar() == "N1"
+
+def test_normal_zera_a_contagem():
+    f = Fila()
+    for _ in range(2):
+        f.emitir("normal")
+    for _ in range(4):
+        f.emitir("prioritaria")
+    ordem = [f.chamar() for _ in range(6)]
+    assert ordem == ["P1", "P2", "N1", "P3", "P4", "N2"]
