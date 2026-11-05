@@ -14,3 +14,13 @@ def test_duas_normais():
 
 def test_emitir_prioritaria():
     assert Fila().emitir("prioritaria") == "P1"
+
+def test_numeracao_por_tipo():
+    f = Fila()
+    assert f.emitir("normal") == "N1"
+    assert f.emitir("prioritaria") == "P1"
+    assert f.emitir("normal") == "N2"
+
+def test_tipo_invalido():
+    with pytest.raises(ValueError):
+        Fila().emitir("vip")
