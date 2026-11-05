@@ -23,6 +23,7 @@ class Fila:
         if self.prios and self.seguidas < 2:
             self.seguidas += 1
             return self.prios.pop(0)
+        self.seguidas = 0
         return self.normais.pop(0)
 
     @property
