@@ -17,7 +17,7 @@ class Fila:
         return senha
 
     def chamar(self):
-        raise IndexError
+        return self.senhas.pop(0)
 
     @property
     def aguardando(self):
