@@ -26,3 +26,12 @@ def test_maiusculas():
 
 def test_ponto_e_exclamacao():
     assert contar_palavras("fim. Fim!") == {"fim": 2}
+
+def test_virgula_e_ponto_virgula():
+    assert contar_palavras(",dia, ;dia;") == {"dia": 2}
+
+def test_dois_pontos_e_interrogacao():
+    assert contar_palavras(":dia: ?dia?") == {"dia": 2}
+
+def test_so_sinais():
+    assert contar_palavras("... !") == {}
