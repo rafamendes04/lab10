@@ -39,3 +39,23 @@ def test_chamar_devolve_senha():
     f = Fila()
     f.emitir("normal")
     assert f.chamar() == "N1"
+
+def test_chamar_reduz_aguardando():
+    f = Fila()
+    f.emitir("normal")
+    f.emitir("normal")
+    f.chamar()
+    assert f.aguardando == 1
+
+def test_normais_em_ordem_de_chegada():
+    f = Fila()
+    f.emitir("normal")
+    f.emitir("normal")
+    assert f.chamar() == "N1"
+    assert f.chamar() == "N2"
+
+def test_prioritaria_passa_na_frente():
+    f = Fila()
+    f.emitir("normal")
+    f.emitir("prioritaria")
+    assert f.chamar() == "P1"
