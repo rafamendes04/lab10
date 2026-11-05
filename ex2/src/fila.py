@@ -20,7 +20,7 @@ class Fila:
         return senha
 
     def chamar(self):
-        if self.prios and self.seguidas < 2:
+        if self.prios and (self.seguidas < 2 or not self.normais):
             self.seguidas += 1
             return self.prios.pop(0)
         self.seguidas = 0
