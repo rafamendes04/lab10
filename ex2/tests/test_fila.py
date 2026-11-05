@@ -11,3 +11,6 @@ def test_duas_normais():
     f = Fila()
     assert f.emitir("normal") == "N1"
     assert f.emitir("normal") == "N2"
+
+def test_emitir_prioritaria():
+    assert Fila().emitir("prioritaria") == "P1"
